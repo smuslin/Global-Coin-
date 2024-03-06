@@ -8,7 +8,7 @@ Open Zeplin ERC20
 # Data
 Base market Tick info (SPY, Gold or others)
 option of added trading algorithm
-Code
+# Code
 Python importing ALPACA API
 
 ERC20 fungible token smart contract
