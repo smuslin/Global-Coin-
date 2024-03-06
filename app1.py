@@ -8,7 +8,7 @@ import json
 load_dotenv()
 
 # Connect to a local Ethereum node (you should replace 'http://localhost:7545' with your node's address)
-w3 = Web3(Web3.HTTPProvider('WEB3_PROVIDER_URI'))
+w3 = Web3(Web3.HTTPProvider('http://127.0.0.1:7545'))
 
 # Address of the deployed GC_TokenCrowdsaleDeployer contract
 deployer_contract_address = "SMART_CONTRACT_ADDRESS"
@@ -17,7 +17,7 @@ with open(Path('gc_abi.json')) as f:
         gc_abi = json.load(f)
 
 # Connect to the deployed GC_TokenCrowdsaleDeployer contract
-deployer_contract = w3.eth.contract(address='0x4f62660BF0940497a92C8457469b66A3c32cb290', abi=gc_abi)
+deployer_contract = w3.eth.contract(address='0xF55a6f104BF9E4A3f307022f0Dca4084799F8b80', abi=gc_abi)
 
 # Streamlit App
 st.title("GC Token Crowdsale App")
@@ -40,11 +40,17 @@ if st.button("Deploy Crowdsale"):
 # Display existing crowdsale details
 st.header("Existing Crowdsale Details")
 
-gc_token_balanceof = GC_TOKEN.functions.balanceOf().call()
-gc_token_name = GC_TOKEN.functions.name().call()
+total_supply = deployer_contract.functions.totalSupply().call()
+#gc_token_name = GC_TOKEN.functions.name().call()
 
-st.write(f"GC Token Address: {gc_token_balanceof}")
-st.write(f"GC Crowdsale Address: {gc_token_name}")
+st.write(f"Total Supply: {total_supply}")
+
+accounts = w3.eth.accounts
+#address = st.selectbox(“Select Account”, options=accounts)
+selected_address = st.selectbox("Select Account", options=accounts)
+Balance = deployer_contract.functions.balanceOf(selected_address).call()
+st.write(f"Balance: {Balance}")
+#st.write(f"GC Crowdsale Address: {gc_token_name}")
 
 #Here's an example demonstrating how you can structure your Streamlit app to have multiple pages:
 #6:04
