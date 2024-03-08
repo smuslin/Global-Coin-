@@ -3,7 +3,7 @@
 Fungible Token that trades in the market and reflects the profit/loss of a certain tick
 ERC20 smart contract token that could be minted and sold to the buyer
 # Sources
-ALPACA API
+Remix Solidity
 Open Zeplin ERC20
 # Data
 Base market Tick info (SPY, Gold or others)
