@@ -25,26 +25,51 @@ deployer_contract2 = w3.eth.contract(address='0x90dDC06B3Cd62a6D631Bc63d047AaEE0
 # Streamlit App
 st.title("GC Token Crowdsale App")
 
-# # Page 1 content
-# def page1():
-#     st.title("Page 1")
-#     #st.write("This is the content of Page 1.")
+# Page 1 content
+def page1():
+    st.title("Page 1")
+    #st.write("This is the content of Page 1.")
 
-#     # Form to deploy a new crowdsale
-#     st.header("Deploy New Crowdsale")
+    # Form to deploy a new crowdsale
+    st.header("GLOBAL COIN")
+    st.image('globalcoin.png', caption=None, width=500, use_column_width=500, clamp=False, channels="RGB", output_format="auto")
+    st.markdown('''
+    # Welcome to Global Coin
 
-#     token_name = st.text_input("Token Name:")
-#     token_symbol = st.text_input("Token Symbol:")
-#     wallet_address = st.text_input("Wallet Address:")
+Unlock the Power of :orange[Fungible Tokens on the Ethereum Blockchain]
 
+Are you ready to redefine your investment journey? Introducing Global Coin, the ultimate gateway to the world of fungible tokens, where your choices are limitless and your investments are empowered.
 
-#     if st.button("Deploy Crowdsale"):
-#         # Deploy a new crowdsale
-#         try:
-#             transaction_hash = deployer_contract.functions.DEPLOY(token_name, token_symbol, wallet_address).transact()
-#             st.success(f"Transaction Hash: {transaction_hash.hex()}")
-#         except Exception as e:
-#             st.error(f"Error deploying crowdsale: {e}")
+# Why Global Coin?
+
+Global Coin is not just a token; it's your passport to a diverse world of investment opportunities. We believe in making financial markets :orange[accessible to everyone], and with Global Coin, you can seamlessly :orange[buy tokens that represent the S&P 500, handpicked stocks, popular cryptocurrencies], or even invest in :red[cutting-edge AI trading algorithms].
+
+# Key Features:
+
+- :orange[Fungible Token Freedom]: Global Coin operates on the ERC-20 smart contract standard, ensuring compatibility and liquidity across a wide range of platforms. Trade, transfer, and invest with ease.
+
+- :orange[Diverse Investment Options]: Choose from a curated selection of tokens representing renowned indices, individual stocks, cryptocurrencies, or venture into the exciting realm of algorithmic trading. Your investment, your rules.
+
+- :orange[Transparent and Secure]: We prioritize the security of your investments. Global Coin leverages the robust security features of the Ethereum blockchain, providing transparency and peace of mind.
+
+- :orange[Accessible to All]: Whether you're a seasoned investor or just getting started, Global Coin welcomes you. No barriers, no restrictions – just a world of possibilities at your fingertips.
+
+# How It Works:
+
+1. :orange[Create Your Account]: Sign up for your Global Coin account and gain access to a world of investment opportunities.
+
+2. :orange[Explore Tokens]: Browse through our diverse selection of fungible tokens. From traditional indices to futuristic trading algorithms, there's something for every investor.
+
+3. :orange[Buy and Trade]: Purchase tokens seamlessly using your preferred payment method. Trade on our user-friendly platform, anytime, anywhere.
+
+4. :orange[Diversify Your Portfolio]: Tailor your investment portfolio to match your unique preferences and risk tolerance. The power to diversify is in your hands.
+
+# Join Global Coin Today and Elevate Your Investment Experience!
+
+Global Coin is not just about investing; it's about :orange[empowering you to shape your financial future]. Join us on this exciting journey as we redefine the way the world invests. Your financial adventure begins here at Global Coin.
+
+Ready to start investing? Sign up now and embark on a new era of financial freedom.
+    ''')
 
 
 # Page 2 content
