@@ -77,70 +77,112 @@ def page2():
     st.title("Page 2")
     #st.write("This is the content of Page 2.")
 
-    # Display existing crowdsale details
-    st.header("Existing Crowdsale Details")
+    # Define predefined username and password
+    valid_username = "user"
+    valid_password = "password"
 
-    total_supply = deployer_contract.functions.totalSupply().call()
-    st.write(f"Total Supply: {total_supply}")
+    # Streamlit App
+    st.title("User Page / Login / Token Information")
 
-    symbol = deployer_contract.functions.symbol().call()
-    st.write(f"Symbol: {symbol}")
+    # Input fields for username and password
+    username = st.text_input("Username:")
+    password = st.text_input("Password:", type="password")
 
-    name = deployer_contract.functions.name().call()
-    st.write(f"Name: {name}")
+    # Check credentials on button click
+    if st.button("Login"):
+        if username == valid_username and password == valid_password:
+            st.success("Login successful!")
+            # Display existing crowdsale details
+            st.header("Existing Crowdsale Details")
 
-    decimals = deployer_contract.functions.decimals().call()
-    st.write(f"Desimals: {decimals}")
+            total_supply = deployer_contract.functions.totalSupply().call()
+            st.write(f"Total Supply: {total_supply}")
 
-    accounts = w3.eth.accounts
-    selected_address = st.selectbox("Select Account", options=accounts)
-    Balance = deployer_contract.functions.balanceOf(selected_address).call()
-    st.write(f"Balance: {Balance}")
+            symbol = deployer_contract.functions.symbol().call()
+            st.write(f"Symbol: {symbol}")
+
+            name = deployer_contract.functions.name().call()
+            st.write(f"Name: {name}")
+
+            decimals = deployer_contract.functions.decimals().call()
+            st.write(f"Desimals: {decimals}")
+
+            accounts = w3.eth.accounts
+            selected_address = st.selectbox("Select Account", options=accounts)
+            Balance = deployer_contract.functions.balanceOf(selected_address).call()
+            st.write(f"Balance: {Balance}")
+        else:
+            st.error("Invalid username or password. Please try again.")
+
 
 # Page 1 content
 def page3():
     st.title("Page 3")
-    #st.write("This is the content of Page 3.")
-    #buy = st.text_input("Buy Tokens:")
-    #buytokens = deployer_contract2.functions.buyTokens(buy).call()
-    #st.write(f"Buy Tokens: {buytokens}")
 
-    # if st.button("Buy Tokens"):
-    #     # Deploy the crowdsale
-    #     try:
-    #         transaction_hash = deployer_contract2.functions.deployNewCrowdsale(token_name, token_symbol, wallet_address).transact()
-    #         st.success(f"Transaction Hash: {transaction_hash.hex()}")
-    #     except Exception as e:
-    #         st.error(f"Error deploying crowdsale: {e}")
-    # Form to buy tokens
-    st.header("Buy Tokens")
+    # Define predefined username and password
+    valid_username = "user"
+    valid_password = "password"
 
-    buyer_address = st.text_input("Buyer Address:")
-    buy_amount = st.text_input("Amount to Buy (in Wei):")
+    # Streamlit App
+    st.title("User Page / Login / Buy Tokens")
 
-    if st.button("Buy Tokens"):
-        # Buy tokens
-        try:
-            transaction_hash = deployer_contract2.functions.buyTokens(buyer_address).transact(
-                {'from': buyer_address, 'value': buy_amount, 'gas': 100000}
-            )
-            st.success(f"Tokens Purchased. Transaction Hash: {transaction_hash.hex()}")
-        except Exception as e:
-            st.error(f"Error buying tokens: {e}")
+    # Input fields for username and password
+    username = st.text_input("Username:")
+    password = st.text_input("Password:", type="password")
 
-    rate = deployer_contract2.functions.rate().call()
-    st.write(f"Rate: {rate}")
+    # Check credentials on button click
+    if st.button("Login"):
+        if username == valid_username and password == valid_password:
+            st.success("Login successful!")
+            st.header("Buy Tokens")
+            selected_option = st.selectbox("Choose an option:", ["US Market", "AI Algorithm", "Specific Market"])
 
-    token = deployer_contract2.functions.token().call()
-    st.write(f"Token: {token}")
-
-    wallet = deployer_contract2.functions.wallet().call()
-    st.write(f"Wallet: {wallet}")
-
-    weiraised = deployer_contract2.functions.weiRaised().call()
-    st.write(f"Wei Raised: {weiraised}")
+            # Display input fields based on the selected option
+            if selected_option == "US Market":
+                # Input for US Market
+                us_market_input = st.text_input("Enter US Market details:")
+                st.write("Selected Option: US Market")
+                st.write("Input for US Market:", us_market_input)
+            elif selected_option == "AI Algorithm":
+                # Input for AI Algorithm
+                ai_algorithm_input = st.text_input("Enter AI Algorithm details:")
+                st.write("Selected Option: AI Algorithm")
+                st.write("Input for AI Algorithm:", ai_algorithm_input)
+            elif selected_option == "Specific Market":
+                # Input for Specific Market
+                specific_market_input = st.text_input("Enter Specific Market details:")
+                st.write("Selected Option: Specific Market")
+                st.write("Input for Specific Market:", specific_market_input)
 
 
+            buyer_address = st.text_input("Buyer Address:")
+            buy_amount = st.text_input("Amount to Buy (in Wei):")
+
+            if st.button("Buy Tokens"):
+                # Buy tokens
+                try:
+                    transaction_hash = deployer_contract2.functions.buyTokens(buyer_address).transact(
+                        {'from': buyer_address, 'value': buy_amount, 'gas': 3000000}
+                    )
+                    st.success(f"Tokens Purchased. Transaction Hash: {transaction_hash.hex()}")
+                except Exception as e:
+                    st.error(f"Error buying tokens: {e}")
+
+            rate = deployer_contract2.functions.rate().call()
+            st.write(f"Rate: {rate}")
+
+            token = deployer_contract2.functions.token().call()
+            st.write(f"Token: {token}")
+
+            wallet = deployer_contract2.functions.wallet().call()
+            st.write(f"Wallet: {wallet}")
+
+            weiraised = deployer_contract2.functions.weiRaised().call()
+            st.write(f"Wei Raised: {weiraised}")
+        else:
+            st.error("Invalid username or password. Please try again.")
+
+    
 # Main app
 def main():
     # Create a navigation sidebar
