@@ -1,6 +1,8 @@
 # Global-Coin-
 # Global Coin (GC)
-ERC20 smart contract token that could be minted and sold to the buyer
+ERC20 smart contract token that is minted and sold to the buyer
+
+
 Fungible Token that trades in the market and reflects the profit/loss of a certain ETF (exchange traded fund) traded on the NASDAQ 
 # Sources
 Remix Solidity
