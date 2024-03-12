@@ -19,7 +19,8 @@ Streamlit front end
 
 # Analysis and visualization
 To analyze the value of the token we will first 
-Plot the Token value as x on Y (time stamp) and then 
-Plot the number of tokens in the market and each individual's share to evaluate adoption. 
+Plot the Token value as X on Y (time stamp)  
+
+then plot the number of tokens in the market and each individual's share to evaluate adoption. 
 # Participants:
 Harith Alshuwaykh, Sam Muslin, Erin O'leary, Montgomery Gash
