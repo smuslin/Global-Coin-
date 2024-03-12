@@ -18,7 +18,8 @@ ERC20 fungible token smart contract
 Streamlit front end
 
 # Analysis and visualization
-Plot the Token value as x on Y (time stamp)
-Plot the number of tokens in the market and each individual's share
+To analyze the value of the token we will first 
+Plot the Token value as x on Y (time stamp) and then 
+Plot the number of tokens in the market and each individual's share to evaluate adoption. 
 # Participants:
 Harith Alshuwaykh, Sam Muslin, Erin O'leary, Montgomery Gash
